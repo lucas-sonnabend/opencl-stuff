@@ -96,4 +96,18 @@ What are the purpose of local and global work size? What are work groups vs work
 
 Play around with the numbers for `len` and `local_work_size`, how does it affect the runtime? Try vectors of length `32`, `1024*32` and `1024*1024*32`.
 
+
 [This paper](https://cims.nyu.edu/~schlacht/OpenCLModel.pdf) gives a decent introduction to the openCL concepts!
+
+
+### 3. Matrix Multiplication
+
+to compile the code run
+
+```
+gcc mat_mul.c -lOpenCL -lm -o mat_mul
+```
+Again play around with the size of the matrix, and the work group size. How does it affect the runtime? What sizes are possible? When do they stop being the same? Can you figure out why? Can you fix it?
+
+A more efficient way to multiply matrices is to transpose the second matrix first, so you can iterate over it row by row rather than column by column. Why is that faster? Can you implement this using another kernel to transpose the matrix first?
+
